@@ -17,7 +17,6 @@ import './styles/globals.css';
 import AllArticles from './components/pages/AllArticles.jsx';
 import PrivacyPolicy from './components/pages/PrivacyPolicy.jsx';
 import TermsOfService from './components/pages/TermsOfService.jsx';
-
 function App() {
   return (
     <AuthProvider>

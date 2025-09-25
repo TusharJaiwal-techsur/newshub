@@ -15,6 +15,8 @@ export const useArticles = (page = 0, size = 10) => {
 
     const fetchArticles = async () => {
         try {
+            console.log(`Here:${process.env.REACT_APP_API_URL}`);
+
             setLoading(true);
             const response = await articleService.getArticles(page, size);
             setArticles(response.data.content);

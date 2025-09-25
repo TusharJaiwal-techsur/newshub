@@ -47,9 +47,8 @@ const HomePage = () => {
                 articleService.getPopularArticles()
             ]);
 
-            console.log("Featured:", featuredRes.data);
-            console.log("Articles:", articlesRes.data);
-            console.log("Popular:", popularRes.data);
+            console.log("Here:", import.meta.env.VITE_API_URL);
+
 
             setFeaturedArticles(Array.isArray(featuredRes.data) ? featuredRes.data : []);
             setLatestArticles(Array.isArray(articlesRes.data?.content) ? articlesRes.data.content : []);
