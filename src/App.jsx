@@ -18,6 +18,8 @@ const AllArticles = lazy(() => import('./components/pages/AllArticles.jsx'));
 const PrivacyPolicy = lazy(() => import('./components/pages/PrivacyPolicy.jsx'));
 const TermsOfService = lazy(() => import('./components/pages/TermsOfService.jsx'));
 
+
+
 function App() {
   return (
     <AuthProvider>
