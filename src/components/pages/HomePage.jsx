@@ -160,23 +160,6 @@ const HomePage = () => {
         );
     };
 
-    // Secondary Featured Articles (for grid layout when many featured articles)
-    // const SecondaryFeatured = ({ articles }) => {
-    //     if (!articles || articles.length <= 3) return null;
-
-    //     const secondaryArticles = articles.slice(1, 5); // Show 2-4 more featured articles
-
-    //     return (
-    //         <div className="mt-8">
-    //             <h3 className="text-xl font-semibold text-gray-800 mb-4">More Featured Stories</h3>
-    //             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    //                 {secondaryArticles.map((article) => (
-    //                     <FeaturedArticleCard key={article.id} article={article} />
-    //                 ))}
-    //             </div>
-    //         </div>
-    //     );
-    // };
 
     const FeaturedArticleCard = ({ article, isMain = false }) => (
         <Link to={`/article/${article.id}`} className="group block h-full">

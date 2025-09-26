@@ -1,5 +1,6 @@
 // components/pages/PrivacyPolicy.jsx
 import React from 'react';
+import STR from '../../config/en';
 
 const PrivacyPolicy = () => {
     return (
@@ -136,9 +137,9 @@ const PrivacyPolicy = () => {
                                 If you have any questions about this Privacy Policy or our privacy practices, please contact us:
                             </p>
                             <div className="bg-gray-50 p-4 rounded-lg">
-                                <p className="text-gray-600 mb-2"><strong>Email:</strong> privacy@newshub.com</p>
-                                <p className="text-gray-600 mb-2"><strong>Address:</strong> Prayagraj, Uttar Pradesh, India</p>
-                                <p className="text-gray-600"><strong>Phone:</strong> +91 9876543210</p>
+                                <p className="text-gray-600 mb-2"><strong>Email:</strong> {STR.footer.contact_info.email}</p>
+                                <p className="text-gray-600 mb-2"><strong>Address:</strong> {STR.footer.contact_info.address}</p>
+                                <p className="text-gray-600"><strong>Phone:</strong> {STR.footer.contact_info.phone}</p>
                             </div>
                         </section>
                     </div>

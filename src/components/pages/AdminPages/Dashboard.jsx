@@ -12,6 +12,7 @@ import { authService } from '../../../service/auth';
 import { formatDate, formatDateTime } from '../../../utils/dateUtils';
 import Button from '../../ui/Button';
 import Card from '../../ui/Card';
+import STR from '../../../config/en';
 
 const Dashboard = () => {
     const { isAuthenticated, admin } = useAuth();
@@ -80,10 +81,10 @@ const Dashboard = () => {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Access Denied</h1>
-                    <p className="text-gray-600 mb-6">You need to login to access the dashboard.</p>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-4">{STR.admin.dashboard.AccessDenied}</h1>
+                    <p className="text-gray-600 mb-6">{STR.admin.dashboard.login_message}</p>
                     <Link to="/">
-                        <Button>Go to Home</Button>
+                        <Button>{STR.admin.dashboard.go_home}</Button>
                     </Link>
                 </div>
             </div>
@@ -114,13 +115,13 @@ const Dashboard = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-8">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
-                        <p className="text-gray-600">Welcome back, {admin?.fullName}</p>
+                        <h1 className="text-3xl font-bold text-gray-800">{STR.admin.dashboard.adminDashboard}</h1>
+                        <p className="text-gray-600">{STR.admin.dashboard.welcomeback} {admin?.fullName}</p>
                     </div>
                     <Link to="/admin/create">
                         <Button>
                             <Plus className="w-4 h-4 mr-2" />
-                            Create Article
+                            {STR.admin.dashboard.createArticle}
                         </Button>
                     </Link>
                 </div>
@@ -133,7 +134,7 @@ const Dashboard = () => {
                                 <FileText className="w-6 h-6 text-blue-600" />
                             </div>
                             <div>
-                                <p className="text-sm font-medium text-gray-600">Total Articles</p>
+                                <p className="text-sm font-medium text-gray-600">{STR.admin.dashboard.totalArticles}</p>
                                 <p className="text-2xl font-bold text-gray-900">{stats.totalArticles || 0}</p>
                             </div>
                         </div>
@@ -145,7 +146,7 @@ const Dashboard = () => {
                                 <Eye className="w-6 h-6 text-green-600" />
                             </div>
                             <div>
-                                <p className="text-sm font-medium text-gray-600">Total Views</p>
+                                <p className="text-sm font-medium text-gray-600">{STR.admin.dashboard.totalViews}</p>
                                 <p className="text-2xl font-bold text-gray-900">{stats.totalViews || 0}</p>
                             </div>
                         </div>
@@ -157,7 +158,7 @@ const Dashboard = () => {
                                 <TrendingUp className="w-6 h-6 text-yellow-600" />
                             </div>
                             <div>
-                                <p className="text-sm font-medium text-gray-600">Views Today</p>
+                                <p className="text-sm font-medium text-gray-600">{STR.admin.dashboard.viewsTody}</p>
                                 <p className="text-2xl font-bold text-gray-900">{stats.viewsToday || 0}</p>
                             </div>
                         </div>
@@ -169,7 +170,7 @@ const Dashboard = () => {
                                 <BarChart3 className="w-6 h-6 text-purple-600" />
                             </div>
                             <div>
-                                <p className="text-sm font-medium text-gray-600">Published</p>
+                                <p className="text-sm font-medium text-gray-600">{STR.admin.dashboard.published}</p>
                                 <p className="text-2xl font-bold text-gray-900">{stats.publishedArticles || 0}</p>
                             </div>
                         </div>
@@ -179,26 +180,26 @@ const Dashboard = () => {
                 {/* Articles Table */}
                 <Card>
                     <div className="p-6 border-b border-gray-200">
-                        <h2 className="text-xl font-semibold text-gray-800">Recent Articles</h2>
+                        <h2 className="text-xl font-semibold text-gray-800">{STR.admin.dashboard.recentArticles}</h2>
                     </div>
                     <div className="overflow-x-auto">
                         <table className="w-full">
                             <thead className="bg-gray-50">
                                 <tr>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Article
+                                        {STR.admin.dashboard.article}
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Status
+                                        {STR.admin.dashboard.status}
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Views
+                                        {STR.admin.dashboard.views}
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Created
+                                        {STR.admin.dashboard.Created}
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Actions
+                                        {STR.admin.dashboard.actions}
                                     </th>
                                 </tr>
                             </thead>

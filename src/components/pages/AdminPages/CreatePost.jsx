@@ -7,6 +7,7 @@ import { articleService } from '../../../service/articleService';
 import { CATEGORIES } from '../../../utils/constants';
 import Button from '../../ui/Button';
 import Card from '../../ui/Card';
+import STR from '../../../config/en';
 
 const CreatePost = () => {
     const { id } = useParams();
@@ -125,8 +126,8 @@ const CreatePost = () => {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-2xl font-bold text-gray-800 mb-4">Access Denied</h1>
-                    <p className="text-gray-600 mb-6">You need to login to create articles.</p>
+                    <h1 className="text-2xl font-bold text-gray-800 mb-4">{STR.createPage.auth.access}</h1>
+                    <p className="text-gray-600 mb-6">{STR.createPage.auth.message}</p>
                 </div>
             </div>
         );
@@ -161,7 +162,7 @@ const CreatePost = () => {
                                 onClick={handlePreview}
                             >
                                 <Eye className="w-4 h-4 mr-2" />
-                                Preview
+                                {STR.createPage.create_post.Views || 'Preview'}
                             </Button>
                         </div>
                     </div>
@@ -180,7 +181,7 @@ const CreatePost = () => {
                                     {/* Title */}
                                     <div className="mb-6">
                                         <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
-                                            Title *
+                                            {STR.createPage.create_post.title}
                                         </label>
                                         <input
                                             type="text"
@@ -200,7 +201,7 @@ const CreatePost = () => {
                                     {/* Excerpt */}
                                     <div className="mb-6">
                                         <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700 mb-2">
-                                            Excerpt
+                                            {STR.createPage.create_post.excerpt}
                                         </label>
                                         <textarea
                                             id="excerpt"
@@ -212,14 +213,14 @@ const CreatePost = () => {
                                             placeholder="Brief description of the article (optional)"
                                         />
                                         <p className="mt-1 text-sm text-gray-500">
-                                            If left empty, will be auto-generated from content
+                                            {STR.createPage.create_post.message}
                                         </p>
                                     </div>
 
                                     {/* Content */}
                                     <div>
                                         <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
-                                            Content *
+                                            {STR.createPage.create_post.content}
                                         </label>
                                         <textarea
                                             id="content"
@@ -235,7 +236,7 @@ const CreatePost = () => {
                                             <p className="mt-1 text-sm text-red-600">{errors.content}</p>
                                         )}
                                         <p className="mt-1 text-sm text-gray-500">
-                                            You can use HTML tags for formatting
+                                            {STR.createPage.create_post.message_content}
                                         </p>
                                     </div>
                                 </Card>
@@ -245,7 +246,7 @@ const CreatePost = () => {
                             <div className="lg:col-span-1 space-y-6">
                                 {/* Publish */}
                                 <Card className="p-6">
-                                    <h3 className="text-lg font-semibold text-gray-800 mb-4">Publish</h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 mb-4">{STR.createPage.create_post.publish}</h3>
 
                                     <div className="space-y-4">
                                         <div className="flex items-center">
@@ -258,7 +259,7 @@ const CreatePost = () => {
                                                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                                             />
                                             <label htmlFor="published" className="ml-2 text-sm text-gray-700">
-                                                Publish immediately
+                                                {STR.createPage.create_post.publish_immediately}
                                             </label>
                                         </div>
 
@@ -272,7 +273,7 @@ const CreatePost = () => {
                                                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                                             />
                                             <label htmlFor="featured" className="ml-2 text-sm text-gray-700">
-                                                Mark as featured
+                                                {STR.createPage.create_post.featured}
                                             </label>
                                         </div>
                                     </div>
@@ -291,13 +292,13 @@ const CreatePost = () => {
 
                                 {/* Article Details */}
                                 <Card className="p-6">
-                                    <h3 className="text-lg font-semibold text-gray-800 mb-4">Article Details</h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 mb-4">{STR.createPage.create_post.articleDetails}</h3>
 
                                     <div className="space-y-4">
                                         {/* Category */}
                                         <div>
                                             <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-                                                Category *
+                                                {STR.createPage.create_post.category}
                                             </label>
                                             <select
                                                 id="category"
@@ -307,7 +308,7 @@ const CreatePost = () => {
                                                 className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.category ? 'border-red-300' : 'border-gray-300'
                                                     }`}
                                             >
-                                                <option value="">Select category</option>
+                                                <option value="">{STR.createPage.create_post.select_category}</option>
                                                 {CATEGORIES.map((category) => (
                                                     <option key={category} value={category}>
                                                         {category}
@@ -322,7 +323,7 @@ const CreatePost = () => {
                                         {/* Author */}
                                         <div>
                                             <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
-                                                Author *
+                                                {STR.createPage.create_post.author}
                                             </label>
                                             <input
                                                 type="text"
@@ -343,7 +344,7 @@ const CreatePost = () => {
                                         <div>
                                             <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-2">
                                                 <Image className="w-4 h-4 inline mr-1" />
-                                                Featured Image URL
+                                                {STR.createPage.create_post.featured_image}
                                             </label>
                                             <input
                                                 type="url"
@@ -360,7 +361,7 @@ const CreatePost = () => {
                                         <div>
                                             <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-2">
                                                 <Tag className="w-4 h-4 inline mr-1" />
-                                                Tags
+                                                {STR.createPage.create_post.tags}
                                             </label>
                                             <input
                                                 type="text"
@@ -372,7 +373,7 @@ const CreatePost = () => {
                                                 placeholder="tag1, tag2, tag3"
                                             />
                                             <p className="mt-1 text-sm text-gray-500">
-                                                Separate tags with commas
+                                                {STR.createPage.create_post.tags_message}
                                             </p>
                                         </div>
                                     </div>

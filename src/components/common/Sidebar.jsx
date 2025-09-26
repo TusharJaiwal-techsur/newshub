@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { TrendingUp, Clock, Tag } from 'lucide-react';
 import { articleService } from '../../service/articleService';
 import { timeAgo } from '../../utils/dateUtils';
+import STR from '../../config/en';
 
 const Sidebar = () => {
     const [popularArticles, setPopularArticles] = useState([]);
@@ -23,15 +24,6 @@ const Sidebar = () => {
                 articleService.getLatestArticles(),
                 articleService.getCategories()
             ]);
-
-            // setPopularArticles(popularRes.data);
-            // setLatestArticles(latestRes.data);
-            // setCategories(categoriesRes.data);
-
-            console.log("Popular:", popularRes.data);
-            console.log("Latest:", latestRes.data);
-            console.log("Categories:", categoriesRes.data);
-
             setPopularArticles(Array.isArray(popularRes.data) ? popularRes.data : []);
             setLatestArticles(Array.isArray(latestRes.data) ? latestRes.data : []);
             setCategories(Array.isArray(categoriesRes.data) ? categoriesRes.data : []);
@@ -68,7 +60,7 @@ const Sidebar = () => {
             <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-center mb-4">
                     <TrendingUp className="w-5 h-5 text-red-500 mr-2" />
-                    <h3 className="text-lg font-semibold text-gray-800">Popular Articles</h3>
+                    <h3 className="text-lg font-semibold text-gray-800">{STR.sidebar.popular_posts}</h3>
                 </div>
                 <div className="space-y-4">
                     {popularArticles.slice(0, 5).map((article, index) => (
@@ -88,7 +80,7 @@ const Sidebar = () => {
                                     <div className="flex items-center text-xs text-gray-500 mt-1">
                                         <span>{article.category}</span>
                                         <span className="mx-1">•</span>
-                                        <span>{article.viewCount} views</span>
+                                        <span>{article.viewCount} {STR.sidebar.Views}</span>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +93,7 @@ const Sidebar = () => {
             <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-center mb-4">
                     <Clock className="w-5 h-5 text-blue-500 mr-2" />
-                    <h3 className="text-lg font-semibold text-gray-800">Latest Articles</h3>
+                    <h3 className="text-lg font-semibold text-gray-800">{STR.sidebar.latest_posts}</h3>
                 </div>
                 <div className="space-y-4">
                     {latestArticles.map((article) => (
@@ -138,7 +130,7 @@ const Sidebar = () => {
             <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-center mb-4">
                     <Tag className="w-5 h-5 text-green-500 mr-2" />
-                    <h3 className="text-lg font-semibold text-gray-800">Categories</h3>
+                    <h3 className="text-lg font-semibold text-gray-800">{STR.sidebar.categories}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                     {categories.map((category) => (
@@ -152,14 +144,6 @@ const Sidebar = () => {
                     ))}
                 </div>
             </div>
-
-            {/* AdSense Placeholder
-            <div className="bg-gray-100 rounded-lg p-6 text-center">
-                <div className="text-gray-500 text-sm mb-2">Advertisement</div>
-                <div className="bg-white rounded border-2 border-dashed border-gray-300 h-60 flex items-center justify-center">
-                    <span className="text-gray-400">Ad Space 300x250</span>
-                </div>
-            </div> */}
         </div>
     );
 };

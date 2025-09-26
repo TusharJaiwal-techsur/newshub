@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
+import STR from '../../config/en';
 
 const ContactPage = () => {
     const [formData, setFormData] = useState({
@@ -38,9 +39,9 @@ const ContactPage = () => {
             <div className="bg-blue-600 text-white py-16">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6">Contact Us</h1>
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6">{STR.aboutPage.contactUs}</h1>
                         <p className="text-xl md:text-2xl text-blue-100">
-                            Get in touch with our editorial team
+                            {STR.contactPage.message}
                         </p>
                     </div>
                 </div>
@@ -51,11 +52,11 @@ const ContactPage = () => {
                     {/* Contact Form */}
                     <div>
                         <Card className="p-8">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-6">{STR.contactPage.sentMessage}</h2>
 
                             {success && (
                                 <div className="mb-6 bg-green-50 border border-green-200 text-green-600 px-4 py-3 rounded-lg">
-                                    Thank you for your message! We'll get back to you soon.
+                                    {STR.contactPage.thankYou}
                                 </div>
                             )}
 
@@ -141,29 +142,29 @@ const ContactPage = () => {
                     <div className="space-y-8">
                         {/* Contact Details */}
                         <Card className="p-6">
-                            <h3 className="text-xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                            <h3 className="text-xl font-bold text-gray-800 mb-6">{STR.contactPage.contactInformation}</h3>
                             <div className="space-y-4">
                                 <div className="flex items-center">
                                     <MapPin className="w-5 h-5 text-blue-600 mr-4" />
                                     <div>
-                                        <p className="font-medium text-gray-800">Address</p>
-                                        <p className="text-gray-600">Prayagraj, Uttar Pradesh, India</p>
+                                        <p className="font-medium text-gray-800">{STR.contactPage.address}</p>
+                                        <p className="text-gray-600">{STR.footer.contact_info.address}</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center">
                                     <Phone className="w-5 h-5 text-blue-600 mr-4" />
                                     <div>
-                                        <p className="font-medium text-gray-800">Phone</p>
-                                        <p className="text-gray-600">+91 7219696844</p>
+                                        <p className="font-medium text-gray-800">{STR.contactPage.phone}</p>
+                                        <p className="text-gray-600">{STR.footer.contact_info.phone}</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center">
                                     <Mail className="w-5 h-5 text-blue-600 mr-4" />
                                     <div>
-                                        <p className="font-medium text-gray-800">Email</p>
-                                        <p className="text-gray-600">tusharjaiwal321@gmail.com</p>
+                                        <p className="font-medium text-gray-800">{STR.contactPage.email}</p>
+                                        <p className="text-gray-600">{STR.footer.contact_info.email}</p>
                                     </div>
                                 </div>
                             </div>
@@ -173,20 +174,20 @@ const ContactPage = () => {
                         <Card className="p-6">
                             <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
                                 <Clock className="w-5 h-5 mr-2" />
-                                Business Hours
+                                {STR.contactPage.businessHours}
                             </h3>
                             <div className="space-y-2">
                                 <div className="flex justify-between">
-                                    <span className="text-gray-600">Monday - Friday</span>
-                                    <span className="font-medium text-gray-800">9:00 AM - 6:00 PM</span>
+                                    <span className="text-gray-600">{STR.contactPage.businessHours}</span>
+                                    <span className="font-medium text-gray-800">{STR.contactPage.time1}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span className="text-gray-600">Saturday</span>
-                                    <span className="font-medium text-gray-800">10:00 AM - 4:00 PM</span>
+                                    <span className="text-gray-600">{STR.contactPage.saturday}</span>
+                                    <span className="font-medium text-gray-800">{STR.contactPage.time2}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span className="text-gray-600">Sunday</span>
-                                    <span className="font-medium text-gray-800">Closed</span>
+                                    <span className="text-gray-600">{STR.contactPage.Sunday}</span>
+                                    <span className="font-medium text-gray-800">{STR.contactPage.Closed}</span>
                                 </div>
                             </div>
                         </Card>

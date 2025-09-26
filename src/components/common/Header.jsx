@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import LoginModal from '../pages/AdminPages/LoginModal';
 import { articleService } from '../../service/articleService';
 import { debounce } from '../../utils/helpers';
+import STR from '../../config/en';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,11 +88,11 @@ const Header = () => {
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
                         <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors">
-                            Home
+                            {STR.header.home}
                         </Link>
                         <div className="relative group">
                             <button className="text-gray-700 hover:text-blue-600 transition-colors">
-                                Categories
+                                {STR.header.categories}
                             </button>
                             <div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-48">
                                 {Array.isArray(categories) && categories.map((category) => (
@@ -106,10 +107,10 @@ const Header = () => {
                             </div>
                         </div>
                         <Link to="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
-                            About
+                            {STR.header.about}
                         </Link>
                         <Link to="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
-                            Contact
+                            {STR.header.contact}
                         </Link>
                     </nav>
 
@@ -171,7 +172,7 @@ const Header = () => {
                                             onClick={() => setIsUserMenuOpen(false)}
                                         >
                                             <Settings className="w-4 h-4 mr-2" />
-                                            Dashboard
+                                            {STR.header.option.dashbord}
                                         </Link>
                                         <Link
                                             to="/admin/create"
@@ -179,7 +180,7 @@ const Header = () => {
                                             onClick={() => setIsUserMenuOpen(false)}
                                         >
                                             <Settings className="w-4 h-4 mr-2" />
-                                            Create Post
+                                            {STR.header.option.create_post}
                                         </Link>
                                         <hr className="my-1" />
                                         <button
@@ -187,7 +188,7 @@ const Header = () => {
                                             className="flex items-center w-full px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
                                         >
                                             <LogOut className="w-4 h-4 mr-2" />
-                                            Logout
+                                            {STR.header.option.logout}
                                         </button>
                                     </div>
                                 )}
@@ -233,7 +234,7 @@ const Header = () => {
                                 className="text-gray-700 hover:text-blue-600 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Home
+                                {STR.header.home}
                             </Link>
 
                             <div>
@@ -257,14 +258,14 @@ const Header = () => {
                                 className="text-gray-700 hover:text-blue-600 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                About
+                                {STR.header.about}
                             </Link>
                             <Link
                                 to="/contact"
                                 className="text-gray-700 hover:text-blue-600 transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Contact
+                                {STR.header.contact}
                             </Link>
                         </div>
                     </div>

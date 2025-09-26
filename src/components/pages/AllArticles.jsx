@@ -8,6 +8,7 @@ import { truncateText } from '../../utils/helpers';
 import Sidebar from '../common/Sidebar';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
+import STR from '../../config/en';
 
 const AllArticles = () => {
     const [articles, setArticles] = useState([]);
@@ -143,7 +144,7 @@ const AllArticles = () => {
                             </span>
                             <div className="flex items-center text-gray-500 text-xs">
                                 <Eye className="w-3 h-3 mr-1" />
-                                <span>{article.viewCount} views</span>
+                                <span>{article.viewCount} {STR.AllArticles.views}</span>
                             </div>
                         </div>
                         <h3 className="font-semibold text-xl text-gray-800 group-hover:text-blue-600 transition-colors mb-3 line-clamp-2">
@@ -230,7 +231,7 @@ const AllArticles = () => {
                         <div className="flex flex-wrap items-center gap-4 mb-6 p-4 bg-white rounded-lg shadow">
                             <div className="flex items-center">
                                 <Filter className="w-4 h-4 mr-2 text-gray-500" />
-                                <span className="text-sm font-medium text-gray-700">Filters:</span>
+                                <span className="text-sm font-medium text-gray-700">{STR.AllArticles.filters}</span>
                             </div>
 
                             <select
@@ -238,7 +239,7 @@ const AllArticles = () => {
                                 onChange={(e) => handleCategoryChange(e.target.value)}
                                 className="px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
-                                <option value="">All Categories</option>
+                                <option value="">{STR.AllArticles.allCategories}</option>
                                 {categories.map((category) => (
                                     <option key={category} value={category}>{category}</option>
                                 ))}
@@ -249,15 +250,15 @@ const AllArticles = () => {
                                 onChange={(e) => handleSortChange(e.target.value)}
                                 className="px-3 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
-                                <option value="latest">Latest First</option>
-                                <option value="oldest">Oldest First</option>
-                                <option value="popular">Most Popular</option>
+                                <option value="latest">{STR.AllArticles.options.latestFirst}</option>
+                                <option value="oldest">{STR.AllArticles.options.oldestFirst}</option>
+                                <option value="popular">{STR.AllArticles.options.mostViewed}</option>
                                 <option value="title">Title A-Z</option>
                             </select>
 
                             {(selectedCategory || searchQuery) && (
                                 <Button variant="outline" size="sm" onClick={clearFilters}>
-                                    Clear Filters
+                                    {STR.AllArticles.clearFilter}
                                 </Button>
                             )}
                         </div>
@@ -327,7 +328,7 @@ const AllArticles = () => {
                                 </p>
                                 {(selectedCategory || searchQuery) && (
                                     <Button onClick={clearFilters}>
-                                        Clear Filters
+                                        {STR.AllArticles.clearFilter}
                                     </Button>
                                 )}
                             </div>

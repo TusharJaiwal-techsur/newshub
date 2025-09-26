@@ -6,6 +6,7 @@ import { articleService } from '../../service/articleService';
 import { formatDate, formatDateTime } from '../../utils/dateUtils';
 import Sidebar from '../common/Sidebar';
 import Button from '../ui/Button';
+import STR from '../../config/en';
 
 const ArticleDetail = () => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const ArticleDetail = () => {
       setLoading(true);
       const response = await articleService.getArticleById(id);
       setArticle(response.data);
-      
+
       // Fetch related articles from the same category
       if (response.data.category) {
         const relatedRes = await articleService.getArticlesByCategory(
@@ -53,13 +54,13 @@ const ArticleDetail = () => {
   const handleShare = (platform) => {
     const url = window.location.href;
     const title = article?.title || '';
-    
+
     const shareUrls = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
       twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
     };
-    
+
     if (shareUrls[platform]) {
       window.open(shareUrls[platform], '_blank', 'width=600,height=400');
     }
@@ -101,10 +102,10 @@ const ArticleDetail = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Article Not Found</h1>
-          <p className="text-gray-600 mb-6">The article you're looking for doesn't exist.</p>
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">{STR.articlePage.articleNotFound}</h1>
+          <p className="text-gray-600 mb-6">{STR.articlePage.articleNotFoundMessage}</p>
           <Link to="/">
-            <Button>Go Back Home</Button>
+            <Button>{STR.articlePage.back}</Button>
           </Link>
         </div>
       </div>
@@ -129,19 +130,19 @@ const ArticleDetail = () => {
                   </Link>
                   {article.featured && (
                     <span className="px-2 py-1 bg-red-100 text-red-600 text-xs font-medium rounded">
-                      Featured
+                      {STR.articlePage.Featured}
                     </span>
                   )}
                 </div>
-                
+
                 <h1 className="text-3xl font-bold text-gray-800 mb-4 leading-tight">
                   {article.title}
                 </h1>
-                
+
                 {article.excerpt && (
                   <p className="text-lg text-gray-600 mb-6">{article.excerpt}</p>
                 )}
-                
+
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center space-x-6 text-sm text-gray-500">
                     <div className="flex items-center">
@@ -157,7 +158,7 @@ const ArticleDetail = () => {
                       <span>{article.viewCount} views</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-2">
                     <Share2 className="w-4 h-4 text-gray-500" />
                     <button
@@ -176,12 +177,12 @@ const ArticleDetail = () => {
                       onClick={copyToClipboard}
                       className="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition-colors"
                     >
-                      Copy Link
+                      {STR.articlePage.copyLink}
                     </button>
                   </div>
                 </div>
               </div>
-              
+
               {/* Featured Image */}
               {article.imageUrl && (
                 <div className="aspect-video overflow-hidden">
@@ -192,14 +193,14 @@ const ArticleDetail = () => {
                   />
                 </div>
               )}
-              
+
               {/* Article Content */}
               <div className="p-6">
-                <div 
+                <div
                   className="prose prose-lg max-w-none"
                   dangerouslySetInnerHTML={{ __html: article.content }}
                 />
-                
+
                 {/* Tags */}
                 {article.tags && (
                   <div className="mt-8 pt-6 border-t">
@@ -218,11 +219,11 @@ const ArticleDetail = () => {
                 )}
               </div>
             </div>
-            
+
             {/* Related Articles */}
             {relatedArticles.length > 0 && (
               <div className="mt-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Related Articles</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">{STR.articlePage.relatedArticles}</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {relatedArticles.slice(0, 4).map((relatedArticle) => (
                     <Link
@@ -246,7 +247,7 @@ const ArticleDetail = () => {
                           <span>{formatDate(relatedArticle.createdAt)}</span>
                           <span className="mx-2">•</span>
                           <Eye className="w-3 h-3 mr-1" />
-                          <span>{relatedArticle.viewCount} views</span>
+                          <span>{relatedArticle.viewCount} {STR.articlePage.views}</span>
                         </div>
                       </div>
                     </Link>
@@ -255,7 +256,7 @@ const ArticleDetail = () => {
               </div>
             )}
           </article>
-          
+
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <Sidebar />

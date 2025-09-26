@@ -7,6 +7,7 @@ import { truncateText } from '../../utils/helpers';
 import Sidebar from '../common/Sidebar';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
+import STR from '../../config/en';
 
 const CategoryPage = () => {
     const { category } = useParams();
@@ -100,10 +101,10 @@ const CategoryPage = () => {
                     <div className="lg:col-span-2">
                         <div className="mb-8">
                             <h1 className="text-3xl font-bold text-gray-800 mb-2 capitalize">
-                                {category} News
+                                {category} {STR.categoryPage.news}
                             </h1>
                             <p className="text-gray-600">
-                                Latest articles in {category} category
+                                {STR.categoryPage.latestArticles} {category} {STR.categoryPage.category}
                             </p>
                         </div>
 
@@ -154,7 +155,7 @@ const CategoryPage = () => {
                         ) : (
                             <div className="text-center py-12">
                                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                                    No articles found
+                                    {STR.categoryPage.notFound}
                                 </h2>
                                 <p className="text-gray-600 mb-6">
                                     There are no articles in the {category} category yet.

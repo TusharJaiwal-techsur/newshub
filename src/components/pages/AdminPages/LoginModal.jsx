@@ -4,6 +4,7 @@ import { X, User, Lock, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../../hooks/useAuth';
 import Button from '../../ui/Button';
 import Modal from '../../ui/Modal';
+import STR from '../../../config/en';
 
 const LoginModal = ({ isOpen, onClose }) => {
     const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -51,7 +52,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
                 <div>
                     <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
-                        Username
+                        {STR.admin.loginModel.email}
                     </label>
                     <div className="relative">
                         <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -63,14 +64,14 @@ const LoginModal = ({ isOpen, onClose }) => {
                             onChange={handleChange}
                             required
                             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            placeholder="Enter your username"
+                            placeholder="Enter your email"
                         />
                     </div>
                 </div>
 
                 <div>
                     <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                        Password
+                        {STR.admin.loginModel.password}
                     </label>
                     <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -102,7 +103,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                         className="flex-1"
                         disabled={loading}
                     >
-                        Cancel
+                        {STR.admin.loginModel.cancel}
                     </Button>
                     <Button
                         type="submit"
